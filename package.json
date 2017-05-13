@@ -1,0 +1,24 @@
+{
+  "name": "shorty",
+  "version": "0.0.1",
+  "description": "URL shortener",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://nevi-me@git.data-engine.co.za/nevi-me/shorty.git"
+  },
+  "author": "nevilledips@gmail.com",
+  "license": "MIT",
+  "dependencies": {
+    "grpc": "^1.3.2",
+    "mongoose": "^4.8.6",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "@types/mongoose": "^4.7.11",
+    "@types/node": "^7.0.18"
+  }
+}
