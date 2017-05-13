@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "es2017",
+    "sourceMap": false,
+    "allowJs": false,
+    "allowSyntheticDefaultImports": true,
+    "types": [
+      "node"
+    ],
+    "lib": ["ES2015", "ES2015.Promise"]
+  },
+  "exclude": [
+    "node_modules"
+  ]
+}
