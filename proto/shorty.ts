@@ -47,7 +47,6 @@ const shorten = (call, callback: (err?: gRPCError, result?: Shorty) => void) => 
 
 const addCounter = (call, callback: (err?: gRPCError, result?: {}) => void) => {
   ShortenedUrlModel.addCounter(call.request.id, call.request.value);
-  console.log(`incremented ${call.request.id} by ${call.request.value}.`);
   return callback(null, {});
 };
 

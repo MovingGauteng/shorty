@@ -6,8 +6,11 @@ option java_outer_classname = "ShortyProto";
 option optimize_for = SPEED;
 
 service ShortyService {
+    // shorten an url
     rpc Shorten(ShortenRequest) returns (Shorty) {}
+    // increment number of times the url has been viewed
     rpc AddCounter(Counter) returns (Empty) {}
+    // get url, you only need to provide the url (shortened suffix)
     rpc GetUrl (Shorty) returns (Shorty) {}
 }
 

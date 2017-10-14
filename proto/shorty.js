@@ -22,7 +22,6 @@ const shorten = (call, callback) => {
 };
 const addCounter = (call, callback) => {
     shorty_1.ShortenedUrlModel.addCounter(call.request.id, call.request.value);
-    console.log(`incremented ${call.request.id} by ${call.request.value}.`);
     return callback(null, {});
 };
 const getUrl = (call, callback) => {
