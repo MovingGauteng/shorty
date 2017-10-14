@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const querystring_1 = require("querystring");
 const shorty_1 = require("../models/shorty");
 const _ = require("underscore");
+const env = process.env.NODE_ENV || 'development', config = require('../config/config')[env];
 const chars = 'nHz2QqF4p51G7a9ef6mXdglBo8sVtLwRjkPxySACrNhMDEUiTJ0KbOuvUcWY3Z';
 function numToBase62(n) {
     if (n > 62) {
@@ -28,7 +29,7 @@ exports.shorten = function (args) {
                 const idRef = createShortSegment(s._id.toString());
                 s.original = args.url;
                 s.constructed = url;
-                s.url = `https://rwt.to/${idRef}`;
+                s.url = `${config.prefix}/${idRef}`;
                 s.ga_campaign = args.campaign;
                 s.visits = 0;
                 s.created = new Date();

@@ -35,7 +35,7 @@ else {
     const ShortyProto = grpc.load(PROTO_PATH).shorty;
     const gRPCServer = new grpc.Server();
     gRPCServer.addService(ShortyProto.ShortyService.service, shorty_1.endpoints);
-    gRPCServer.bind('0.0.0.0:5010', grpc.ServerCredentials.createInsecure());
+    gRPCServer.bind(config.bind || '0.0.0.0:8081', grpc.ServerCredentials.createInsecure());
     gRPCServer.start();
     console.log('shorty service started');
 }
