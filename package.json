@@ -4,7 +4,7 @@
   "description": "URL shortener",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha test/index.js"
   },
   "repository": {
     "type": "git",
@@ -16,12 +16,13 @@
     "url": "https://github.com/MovingGauteng/shorty/issues"
   },
   "dependencies": {
-    "grpc": "^1.6.6",
-    "mongoose": "^4.12.1",
-    "underscore": "^1.8.3"
+    "@grpc/proto-loader": "^0.4.0",
+    "grpc": "^1.18.0",
+    "mongoose": "^4.13.18",
+    "underscore": "^1.9.1"
   },
   "devDependencies": {
-    "@types/mongoose": "^4.7.23",
-    "@types/node": "^8.*"
+    "@types/mongoose": "^4.7.43",
+    "@types/node": "^8.10.39"
   }
 }

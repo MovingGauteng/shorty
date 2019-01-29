@@ -22,20 +22,28 @@ else {
     let db;
     // check environments
     if (env === 'production') {
-        db = mongoose.connect(config.db.url);
+        db = mongoose.connect(config.db.url, { useMongoClient: true });
     }
     else {
-        db = mongoose.connect(config.db.url);
+        db = mongoose.connect(config.db.url, { useMongoClient: true });
     }
     // start gRPC service
     const grpc = require('grpc');
+    const protoLoader = require("@grpc/proto-loader");
     const path = require('path');
     const PROTO_PATH = path.join(__dirname, '/proto/shorty.proto');
+    const packageDefinition = protoLoader.loadSync(PROTO_PATH, {
+        keepCase: true,
+        longs: String,
+        enums: String,
+        defaults: true,
+        oneofs: true
+    });
     // load the service
-    const ShortyProto = grpc.load(PROTO_PATH).shorty;
+    const ShortyProto = grpc.loadPackageDefinition(packageDefinition).shorty;
     const gRPCServer = new grpc.Server();
     gRPCServer.addService(ShortyProto.ShortyService.service, shorty_1.endpoints);
-    gRPCServer.bind(config.bind || '0.0.0.0:8081', grpc.ServerCredentials.createInsecure());
+    gRPCServer.bind(config.db.bind || '0.0.0.0:8081', grpc.ServerCredentials.createInsecure());
     gRPCServer.start();
     console.log('shorty service started');
 }
